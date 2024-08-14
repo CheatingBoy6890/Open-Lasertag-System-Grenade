@@ -5,10 +5,10 @@
 #include <IRsend.h>
 
 #define NUMLEDS 8
-#define LEDPIN 7
-#define RECEIVERPIN 6
-#define Button 5
-#define IRPIN 9
+#define LEDPIN 2
+#define RECEIVERPIN 1
+#define Button 3
+#define IRPIN 4
 #define dammage 15
 int teamColor [4]{
 0xff0000,
@@ -44,6 +44,7 @@ pixels.begin();
 pixels.fill(0xffffff);
 pixels.show();
 receiver.enableIRIn();
+pinMode(Button,INPUT_PULLUP);
 attachInterrupt(digitalPinToInterrupt(Button),buttonInterrupt,FALLING);
 }
 
