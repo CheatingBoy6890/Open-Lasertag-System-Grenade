@@ -1,3 +1,6 @@
+# This Readme is just a copy of the one in the Open-Lasertag-Tagger repsitory, but still the code for  the grenade works but is wip.
+
+
 # Open-Lasertag-System
 
 ![_DSC8902](https://github.com/user-attachments/assets/2fc5b138-46ba-4c61-b85c-79018dc33adf)
