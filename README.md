@@ -1,9 +1,10 @@
-# This Readme is just a copy of the one in the Open-Lasertag-Tagger repsitory, but still the code for  the grenade works but is wip.
+#  The code for  the grenade works but is wip.
 
 
 # Open-Lasertag-System
 
-![_DSC8902](https://github.com/user-attachments/assets/2fc5b138-46ba-4c61-b85c-79018dc33adf)
+![image](https://github.com/user-attachments/assets/45d6e71e-bf7e-4d23-8a59-6f49e6153257)
+
 
 ---
 
@@ -23,7 +24,7 @@ Currently the project consists of five parts:
 2.  The vests are functional and connect wirelessly with the corresponding tagger
 3.  Targets : For those who don't want to shoot at each other can just shoot at these. The plan also ist to intergrate the further into the system for modes like capture the Flag
 4.  Logger: Counts wich target have been hit by whom
-5.  There's a Laser grenade planned
+5.  There's a Laser grenade WIP
 
 ---
 
@@ -42,7 +43,7 @@ This is the repository for the grenades of the system. here you'll find all the 
 - An ESP 8266 wemos d1 mini
 - A piece of LED strip 8 LEDs ws2812b
 - At least slightly transparent filament
--  perf matrix board
+-  perf matrix board or PCB (comming soon)
 - Cable
 - Pin headers
 - Crimp equipment and or breadboard cables
@@ -52,9 +53,9 @@ This is the repository for the grenades of the system. here you'll find all the 
 - bc 637 transistor
 - 1x Button
 - Switch
-- Resistor 39Ω
+- Resistor 25Ω
 - Battery holder 3 AA batteries
-- 4x Screw M5 x100mm
+- 4x 6mmx30mm metal rod or pipe
 
 - Time
 
