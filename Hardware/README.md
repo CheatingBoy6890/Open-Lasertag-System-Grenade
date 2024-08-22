@@ -38,9 +38,13 @@ If you're using a perf matrix board, make sure to cut out a 6x6 cm square.
 13. Crimp sockets to the cables of the button
 14. Connect LED strip, button and power
 15. Glue the PCB or matrix board in the shell
-16. Cut 4 pieces of 6mm x 30mm metal rod or tube
-17. Heat up the pieces with a lighter and press them half way into the holes in one half of the shell until
-18. Close the shell
-19. Screw on the battery cover
-20. Cuddle your cat
+    ![image](https://github.com/user-attachments/assets/8df8b442-4ac6-49e9-aa09-634c269f5c46)
+
+17. Cut 4 pieces of 6mm x 30mm metal rod or tube
+18. Heat up the pieces with a lighter and press them half way into the holes in one half of the shell until
+   ![image](https://github.com/user-attachments/assets/f50a0486-8a80-4a2c-aa5f-977053b177d6)
+
+20. Close the shell
+21. Screw on the battery cover
+22. Cuddle your cat
     
