@@ -1,3 +1,11 @@
+<div align="center">
+  
+[![PCBWay](https://github.com/user-attachments/assets/d836a4a7-516c-4f2f-8547-6fc7cfca758b)](www.pcbway.com)
+###### Partnering with PCBway.
+</div>
+<br/>
+
+
 # Hardware
 ## General Information 
 
@@ -8,7 +16,7 @@ Warning: This project uses lasers. Be sure to **always** do your own testing by 
 
 -----
 
-**The Grenade runs using 3 1,2V NiMh batteries! Don't use voltages greater than 5V in order to power the Vest.**
+**The Grenade runs using 3 1,2V NiMh batteries! Don't use voltages greater than 5V in order to power it.**
 
 ----
 
@@ -22,7 +30,14 @@ To flash the program to your ESP8266 you need to have <a href="https://code.visu
 
 ## Building the Grenade
 
+#### Perf matrix board
 If you're using a perf matrix board, make sure to cut out a 6x6 cm square.
+
+#### PCB
+We created the pcb layout with <a href="https://www.kicad.org/">KiCad</a>. You can easily order really nice high-quality PCBs from our partner [PCBWay](www.pcbway.com) by using the PCBWay plugin in KiCAD following this [turorial](https://www.pcbway.com/blog/News/PCBWay_Plug_In_for_KiCad_3ea6219c.html), exporting the gerber files manually like explained [here](https://www.pcbway.com/blog/help_center/How_to_Generate_Gerber_and_Drill_Files_in_KiCad_7_0_ab0d12bb.html) or use the gerber files in the repository (possibly outdated or not-yet available).
+
+
+<img src="https://github.com/user-attachments/assets/2d0a36ec-5314-4bf2-8cd0-de0de4358181" width=300/> <img src="https://github.com/user-attachments/assets/41335f11-8d60-466a-965a-b0f244fbd1c7" width=300 />
 
 ----
 
