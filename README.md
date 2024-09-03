@@ -1,11 +1,17 @@
-#  The code for  the grenade works but is wip.
+<div align="center">
+  
+[![PCBWay](https://github.com/user-attachments/assets/d836a4a7-516c-4f2f-8547-6fc7cfca758b)](www.pcbway.com)
+###### Partnering with PCBway.
+</div>
+<br/>
+
 
 
 # Open-Lasertag-System
 
 ![image](https://github.com/user-attachments/assets/45d6e71e-bf7e-4d23-8a59-6f49e6153257)
 
-
+##  ⚠️Warning⚠️ while this code works it is still wip and could have some bugs
 ---
 
 <img src="https://github.com/user-attachments/assets/9b382106-baaf-4b78-8249-ecbceb030ddd" width="60">
