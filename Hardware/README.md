@@ -11,7 +11,11 @@
 
 Warning: This project uses lasers. Be sure to **always** do your own testing by meassuring voltage and current and by looking in datasheets. I am **not** responsible for any injuries you encounter from using this project. Also make sure to wear proper eye-protection.
 
+## Where to get the components
+The components are mostly standard components. We recommend buying them in a local store if possible to support the remaining stores.
 
+We recommend ordering the PCBs at PCBWay, because they offer fast delivery and good quality at a low cost.
+If you don't have a 3D printer you can also order the parts at PCBWay.
 
 
 -----
@@ -42,9 +46,10 @@ We created the pcb layout with <a href="https://www.kicad.org/">KiCad</a>. You c
 ----
 
 1. Make sure you have got all the required parts
-2. Solder pins to your ESP d1 mini
+2. Solder pins to your ESP d1 mini   - Make sure that the ESP8266 board is facing the top.![Solder_pins](https://github.com/user-attachments/assets/6c253076-f8e8-4e83-94db-79a7b5208ae9) (check and cross from pixabay Bild von <a href="https://pixabay.com/de/users/janjf93-3084263/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2061132">Jan</a> auf <a href="https://pixabay.com/de//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2061132">Pixabay</a> Bild von <a href="https://pixabay.com/de/users/openclipart-vectors-30363/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1292787">OpenClipart-Vectors</a> auf <a href="https://pixabay.com/de//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1292787">Pixabay</a>
 3. Flash the ESP
-5. Solder the components to your perf board ore PBC
+5. Solder the components to your perf board ore PBC![PCB](https://github.com/user-attachments/assets/e3ee1dfe-a017-495d-b23f-c095e97ce771)
+
 6. Solder cables to your button
 7. Drill a small hole in the grenade shell and glue in the button
 8. Solder a switch in the red cable of the battery clip
