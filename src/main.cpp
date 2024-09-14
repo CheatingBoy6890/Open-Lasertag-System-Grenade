@@ -1,5 +1,9 @@
 #include <Arduino.h>
 #include <Adafruit_NeoPixel.h>
+//#include <ESP8266Audio.h>
+#include <AudioFileSourceLittleFS.h>
+#include <AudioGeneratorWAV.h>
+#include <AudioOutputI2SNoDAC.h>
 #include <IRremoteESP8266.h>
 #include <IRrecv.h>
 #include <IRsend.h>
@@ -30,9 +34,13 @@ float voltage;
 Adafruit_NeoPixel pixels(NUMLEDS, LEDPIN, NEO_GRB + NEO_KHZ800);
 IRrecv receiver(RECEIVERPIN);
 IRsend transmitter(IRPIN);
+AudioFileSourceLittleFS* file;
+AudioGeneratorWAV* decoder;
+AudioOutputI2SNoDAC* output;
 
 //void IRAM_ATTR buttonInterrupt();
 void booom();
+
 
 
 
@@ -48,6 +56,15 @@ void setup()
   pinMode(Button,INPUT_PULLUP);
   pinMode(A0,INPUT);
   transmitter.begin();
+  LittleFS.begin();
+  file= new AudioFileSourceLittleFS("/explode.wav");
+  decoder= new AudioGeneratorWAV();
+  output= new AudioOutputI2SNoDAC(D7);
+  decoder->begin(file,output);
+  decoder->SetBufferSize(512);
+  output->SetGain(1);
+  output->SetOutputModeMono(true);
+  
 }
 
 void loop()
@@ -110,7 +127,9 @@ void booom()
     data = data + dammage;
     // transmitter.sendMilestag2(data);
     transmitter.sendMilestag2(data, 14, 0);
-
+  decoder->stop();
+  decoder->begin(file ,output);
+  decoder->loop();
     goBooom = 0;
     pixels.fill();
     pixels.show();
