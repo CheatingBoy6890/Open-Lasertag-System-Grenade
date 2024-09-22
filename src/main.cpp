@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <Adafruit_NeoPixel.h>
-//#include <ESP8266Audio.h>
+// #include <ESP8266Audio.h>
 #include <AudioFileSourceLittleFS.h>
 #include <AudioGeneratorWAV.h>
 #include <AudioOutputI2SNoDAC.h>
@@ -14,7 +14,7 @@
 #define Button D3
 #define IRPIN D4
 #define dammage 15
-#define sound D5 //sound will be implemented soon
+
 uint32_t teamColor[4]{
     0xff0000,
     0x0000ff,
@@ -23,26 +23,23 @@ uint32_t teamColor[4]{
 
 };
 
-uint8_t team ;
-uint8_t playerID ;
+uint8_t team;
+uint8_t playerID;
 decode_results results;
 
 bool volatile goBooom = 0;
-bool isConnected =0;
+bool isConnected = 0;
 
 float voltage;
 Adafruit_NeoPixel pixels(NUMLEDS, LEDPIN, NEO_GRB + NEO_KHZ800);
 IRrecv receiver(RECEIVERPIN);
 IRsend transmitter(IRPIN);
-AudioFileSourceLittleFS* file;
-AudioGeneratorWAV* decoder;
-AudioOutputI2SNoDAC* output;
+AudioFileSourceLittleFS *file;
+AudioGeneratorWAV *decoder;
+AudioOutputI2SNoDAC *output;
 
-//void IRAM_ATTR buttonInterrupt();
+// void IRAM_ATTR buttonInterrupt();
 void booom();
-
-
-
 
 void setup()
 {
@@ -52,25 +49,25 @@ void setup()
   pixels.fill(0xffffff);
   pixels.show();
   receiver.enableIRIn();
-  //attachInterrupt(digitalPinToInterrupt(Button), buttonInterrupt, FALLING);
-  pinMode(Button,INPUT_PULLUP);
-  pinMode(A0,INPUT);
+  // attachInterrupt(digitalPinToInterrupt(Button), buttonInterrupt, FALLING);
+  pinMode(Button, INPUT_PULLUP);
+  pinMode(A0, INPUT);
   transmitter.begin();
   LittleFS.begin();
-  file= new AudioFileSourceLittleFS("/explode.wav");
-  decoder= new AudioGeneratorWAV();
-  output= new AudioOutputI2SNoDAC(D7);
-  decoder->begin(file,output);
+  file = new AudioFileSourceLittleFS("/explode.wav");
+  decoder = new AudioGeneratorWAV();
+  output = new AudioOutputI2SNoDAC();
+  pinMode(D7, INPUT); // On the first version PCB the sound is connected to D7 which is useless since only RX can be the AudioOutput. Setting D7 as an Input prevents a short, since it should have a very high input resistans
+  decoder->begin(file, output);
   decoder->SetBufferSize(512);
   output->SetGain(1);
   output->SetOutputModeMono(true);
-  
 }
 
 void loop()
 {
-   voltage = analogRead(A0) * 0.005394;
-  
+  voltage = analogRead(A0) * 0.005394;
+
   delay(100);
   Serial.println(digitalRead(Button));
   while (!isConnected)
@@ -89,8 +86,8 @@ void loop()
         Serial.print("set id and team to");
         Serial.print("Team:");
         Serial.println(team);
-       Serial.printf("PlayerID:%i\n",playerID);
-       isConnected=true;
+        Serial.printf("PlayerID:%i\n", playerID);
+        isConnected = true;
       }
       receiver.resume();
     }
@@ -105,10 +102,10 @@ void loop()
 } */
 void booom()
 {
-  if (digitalRead(Button)==0)
+  if (digitalRead(Button) == 0)
   {
     pixels.setBrightness(255);
-    for (int i = 200; i > 0; i-=10)
+    for (int i = 200; i > 0; i -= 10)
     {
       pixels.fill(teamColor[team]);
       pixels.show();
@@ -127,14 +124,16 @@ void booom()
     data = data + dammage;
     // transmitter.sendMilestag2(data);
     transmitter.sendMilestag2(data, 14, 0);
-  decoder->stop();
-  decoder->begin(file ,output);
-  decoder->loop();
+    decoder->stop();
+    decoder->begin(file, output);
+    decoder->loop();
     goBooom = 0;
     pixels.fill();
     pixels.show();
-  }else if(voltage<=2.8){
-pixels.fill(0xff00ff);
-pixels.show();
+  }
+  else if (voltage <= 2.8)
+  {
+    pixels.fill(0xff00ff);
+    pixels.show();
   }
 }
